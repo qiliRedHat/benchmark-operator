@@ -43,6 +43,7 @@ ORG ?= cloud-bulldozer
 # Get the current branch name
 # In case this is the master branch, rename it to latest
 VERSION ?= $(shell git describe --tags 2>/dev/null || git rev-parse --abbrev-ref HEAD | sed 's/master/latest/g')
+VERSION := latest
 IMG ?= $(REGISTRY)/$(ORG)/benchmark-operator:$(VERSION)
 ifdef IMAGE_ARCH
 IMG := $(REGISTRY)/$(ORG)/benchmark-operator:$(VERSION)-$(IMAGE_ARCH)
